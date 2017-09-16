@@ -27,6 +27,7 @@
     "chart.js": "2.7.0",
     "core-js": "2.5.0",
     "dexie": "^1.5.1",
+    "electron": "^1.7.6",
     "font-awesome": "^4.7.0",
     "fullcalendar": "3.5.1",
     "jquery": "^3.2.1",
