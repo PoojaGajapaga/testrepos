@@ -39,10 +39,53 @@
       <p-footer>
         <label for="tableSearch">Search: </label>
         <input id="tableSearch" #tableSearch type="text" placeholder="Search All The Things">
-        <button type="button" pButton icon="fa-table" label="Export" (click)="dt.exportCSV()" style="float:right;"></button>
-      </p-footer>
+
+
+
+        <button type="button" id="addTimes" pButton label="Add Time Sheet" (click)="displayAddForm = true"></button>
+
+      </p-footer >
     </p-dataTable>
   
     <p-contextMenu #tableContextMenu [model]="contextMenu"></p-contextMenu>
-  
+    
+    <p-dialog header="Create TimeSheet" [modal]="true" [responsive]="true" [(visible)]="displayAddForm" width="700"
+    height="550">
+
+    <form class="ui-g" [formGroup]="addForm" (ngSubmit)="onSaveComplete()">
+
+    <p-panel  class="ui-g-12">
+              <div class="dialogBody">
+                <div class="ui-g">
+                    <label for="User" class="ui-g-5 ui-md-5">User:</label>
+                    <input id="User" formControlName="User" class="ui-g-7 ui-md-7" type="text" />
+                </div>
+                <div class="ui-g">
+                    <label for="Project" class="ui-g-5 ui-md-5">Project:</label>
+                    <input id="Project" formControlName="Project" class="ui-g-7 ui-md-7" type="text" />
+                </div>
+                <div class="ui-g">
+                    <label for="Category" class="ui-g-5 ui-md-5">Category:</label>
+                    <input id="Category" formControlName="Category" class="ui-g-7 ui-md-7" type="text" />
+                </div>
+                <div class="ui-g">
+                     <label for="StartTime" class="ui-g-5 ui-md-5">Start Time:</label>
+                     <input id="StartTime" formControlName="StartTime" class="ui-g-7 ui-md-7" type="number" />
+                </div>
+                <div class="ui-g">
+                    <label for="EndTime" class="ui-g-5 ui-md-5">End Time:</label>
+                    <input id="EndTime" formControlName="EndTime" class="ui-g-7 ui-md-7" type="number" />
+                </div>
+
+                <button pButton type="submit" label="Save" icon="fa-floppy-o"></button>
+
+                <button pButton type="button" label="Cancel" icon="fa-close"></button>
+
+              </div>
+    </p-panel>
+
+    </form>
+
+    </p-dialog>
+
   </div>
